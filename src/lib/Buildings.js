@@ -1,30 +1,6 @@
 import Resources from 'Resources';
 
 const buildingTypes = {
-  "Metal Mine": {
-    toBuild: new Resources({
-    }),
-    toRun: new Resources({
-      "Power": -0.1,
-      "Aluminum": 1,
-      "Iron": 1,
-    })},
-  "Steel Mill": {
-    toBuild: new Resources({
-    }),
-    toRun: new Resources({
-      "Power": -0.3,
-      "Iron": -1,
-      "Steel": 0.5,
-    })},
-  "Elemental Quarry": {
-    toBuild: new Resources({
-    }),
-    toRun: new Resources({
-      "Power": -0.1,
-      "Aluminum": 1,
-      "Iron": 1,
-    })},
   "Solar Panel": {
     toBuild: new Resources({
     }),
@@ -75,15 +51,29 @@ const buildingTypes = {
       "Oxygen": 0.5,
       "Carbon": 0.5,
     })},
-  "Electronics Factory": {
+  "Metal Mine": {
     toBuild: new Resources({
     }),
     toRun: new Resources({
-      "Power": -0.2,
-      "Aluminum": -0.25,
-      "Carbon": -0.5,
-      "Silicon": -0.25,
-      "Electronics": 0.25,
+      "Power": -0.1,
+      "Aluminum": 1,
+      "Iron": 1,
+    })},
+  "Steel Mill": {
+    toBuild: new Resources({
+    }),
+    toRun: new Resources({
+      "Power": -0.3,
+      "Iron": -1,
+      "Steel": 0.5,
+    })},
+  "Elemental Quarry": {
+    toBuild: new Resources({
+    }),
+    toRun: new Resources({
+      "Power": -0.1,
+      "Aluminum": 1,
+      "Iron": 1,
     })},
   "Glass Kiln": {
     toBuild: new Resources({
@@ -103,11 +93,15 @@ const buildingTypes = {
       "Carbon": -0.5,
       "Chemicals": 0.5,
     })},
-  "Pleasure Dome": {
+  "Electronics Factory": {
     toBuild: new Resources({
     }),
     toRun: new Resources({
-      "Power": -1,
+      "Power": -0.2,
+      "Aluminum": -0.25,
+      "Carbon": -0.5,
+      "Silicon": -0.25,
+      "Electronics": 0.25,
     })},
   "Patent Lab": {
     toBuild: new Resources({
@@ -126,6 +120,12 @@ const buildingTypes = {
     }),
     toRun: new Resources({
       "Power": -0.5,
+    })},
+  "Pleasure Dome": {
+    toBuild: new Resources({
+    }),
+    toRun: new Resources({
+      "Power": -1,
     })},
   "Offworld Market": {
     toBuild: new Resources({
