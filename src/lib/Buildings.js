@@ -1,6 +1,6 @@
 import Resources from 'Resources';
 
-export default {
+const buildingTypes = {
   "Metal Mine": {
     toBuild: new Resources({
     }),
@@ -56,7 +56,7 @@ export default {
     toRun: new Resources({
       "Power": -0.2,
       "Water": -1,
-      "Food": -0.5,
+      "Food": 0.5,
     })},
   "Electrolysis Reactor": {
     toBuild: new Resources({
@@ -167,18 +167,24 @@ export default {
     })},
 };
 
-// export default class Buildings {
-//   
-//   [Symbol.iterator]() {
-//     buildingTypes.map( (t) => {
-//       return {
-//         amount: this.amounts[t] || 0,
-//         name: t,
-//       };
-//     });
-//   }
-//   
-//   static types() {
-//     return buildingTypes;
-//   }
-// }
+export default class Buildings {
+  constructor () {
+    
+  }
+  
+  // [Symbol.iterator]() {
+  //   buildingTypes.map( (t) => {
+  //     return {
+  //       amount: this.amounts[t] || 0,
+  //       name: t,
+  //     };
+  //   });
+  // }
+  map = (callback) => {
+    return Object.entries(buildingTypes).map(callback);
+  }
+  
+  static types() {
+    return buildingTypes;
+  }
+}
