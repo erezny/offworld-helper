@@ -4,13 +4,13 @@ export default class NumberDisplay extends Component {
 	render(props) {
     
     const valueText = props.value ? props.value.toFixed(1).replace('.0','') : '';
-    const className = this.getClassName(props.value);
+    const className = this.getClassName(props.value) + (props.className? ` ${props.className}` : '');
 		return (
-			<span
+			<div
         className={className}
       >
 				{valueText}
-			</span>
+			</div>
 		);
 	}
   

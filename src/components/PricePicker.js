@@ -6,14 +6,16 @@ export default class PricePicker extends Component {
 	render(props, state) {
 		const {value, setter} = this.props;
 		return (
-			<div>
+			<div className='pickerContainer'>
         <Picker
           button='-'
           adder={this.handleAdder(setter, value)}
           lowValue={-1}
           highValue={-10}
+          className='pickerLeft'
         />
         <NumberDisplay
+          className='pickerCenter'
           value={value}
           />
         <Picker
@@ -21,6 +23,7 @@ export default class PricePicker extends Component {
           adder={this.handleAdder(setter, value)}
           lowValue={1}
           highValue={10}
+          className='pickerRight'
         />
 			</div>
 		);
@@ -36,14 +39,12 @@ export default class PricePicker extends Component {
 class Picker extends Component {
 	
 	render(props, state) {
-		const {button, lowValue, highValue, adder} = this.props;
+		const {button, lowValue, highValue, adder, className} = this.props;
 		return (
-      <span
+      <div
         onClick={this.handleOnClick(adder, lowValue, highValue)}
-        style={{
-          cursor: 'pointer'
-        }}
-        > {button} </span>
+        className={className}
+        > {button} </div>
 		);
 	}
   handleOnClick = (adder, lowValue, highValue) => {
