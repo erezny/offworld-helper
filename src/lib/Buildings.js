@@ -72,17 +72,8 @@ const buildingTypes = {
     }),
     toRun: new Resources({
       "Power": -0.1,
-      "Aluminum": 1,
-      "Iron": 1,
-    })},
-  "Glass Kiln": {
-    toBuild: new Resources({
-    }),
-    toRun: new Resources({
-      "Power": -0.2,
-      "Oxygen": -0.25,
-      "Silicon": -1,
-      "Glass": 0.5,
+      "Carbon": 1,
+      "Silicon": 1,
     })},
   "Chemical Refinery": {
     toBuild: new Resources({
@@ -92,6 +83,15 @@ const buildingTypes = {
       "Fuel": -0.5,
       "Carbon": -0.5,
       "Chemicals": 0.5,
+    })},
+  "Glass Kiln": {
+    toBuild: new Resources({
+    }),
+    toRun: new Resources({
+      "Power": -0.2,
+      "Oxygen": -0.25,
+      "Silicon": -1,
+      "Glass": 0.5,
     })},
   "Electronics Factory": {
     toBuild: new Resources({
