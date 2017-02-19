@@ -19,13 +19,13 @@ export default class Home extends Component {
 	
 	render() {
 		return (
-			<div class={style.home}>
+			<div className={style.home}>
 				<table>
 					<Header
 						resources={this.state.resources}
 					/>
 					<TableBody
-						buildings={this.state.buildings}
+						buildings={this.state.buildings.forHqType(this.hqType())}
 						resources={this.state.resources}
 						/>
 				</table>
@@ -33,6 +33,9 @@ export default class Home extends Component {
 		);
 	}
 	
+	hqType = () => {
+		return this.props.path.replace("/", "");
+	}
 	
 }
 
@@ -55,9 +58,9 @@ class Header extends Component {
 			<thead>
 				<tr>
 					<th>Building</th>
-					<th>Cost To Build</th>
 					{resources.names}
 					<th>Profit</th>
+					<th>Cost To Build</th>
 				</tr>
 				<tr>
 					<th></th>
@@ -71,6 +74,7 @@ class Header extends Component {
 
 class TableBody extends Component {
 	render(props) {
+		console.log({style});
 		const {buildings, resources} = props;
 		const buildingsList = [];
 		buildings.map((([name,b]) => {
@@ -83,35 +87,35 @@ class TableBody extends Component {
 			);
 			
 			const toBuild = b.toBuild.map((r) =>
-				<td class={style.toBuild}>
+				<td className={style.toBuild}>
 					<NumberDisplay
 						value={r.amount}
 					/>
 				</td>
 			);
 			buildingsList.push (
-				<tr>
+				<tr className={style.top}>
 					<td rowspan={2}>{name}</td>
-					<td></td>
 					{toRun}
-					<td class={style.toRun}>
+					<td className={style.toRun}>
 						<NumberDisplay
 							value={b.toRun.sumOfProducts(resources)}
 							showZero={true}
 						/>
 					</td>
+					<td></td>
 				</tr>
 			);
 			buildingsList.push(
 				<tr>
-					<td class={style.toBuild}>
+					{toBuild}
+					<td>
+					</td>
+					<td className={style.toBuild}>
 						<NumberDisplay
 							value={b.toBuild.sumOfProducts(resources)}
 							showZero={true}
 						/>
-					</td>
-					{toBuild}
-					<td>
 					</td>
 				</tr>
 			);
