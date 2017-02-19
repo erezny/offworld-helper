@@ -1,26 +1,34 @@
 import Resources from 'Resources';
 
+//toBuild is scientific/robotic
 const buildingTypes = {
   "Solar Panel": {
     toBuild: new Resources({
+      "Aluminum": 20,
+      "Silicon": 100,
     }),
     toRun: new Resources({
       "Power": 1,
     })},
   "Wind Turbine": {
     toBuild: new Resources({
+      "Aluminum": 20,
+      "Carbon": 80,
     }),
     toRun: new Resources({
       "Power": 1,
     })},
   "Geothermal Plant": {
     toBuild: new Resources({
+      Aluminum: 40,
+      Steel: 60,
     }),
     toRun: new Resources({
       "Power": 2,
     })},
   "Water Pump": {
     toBuild: new Resources({
+      //nothing
     }),
     toRun: new Resources({
       "Power": -0.2,
@@ -28,6 +36,8 @@ const buildingTypes = {
     })},
   "Greenhouse Farm": {
     toBuild: new Resources({
+      Steel: 20,
+      Glass: 10,
     }),
     toRun: new Resources({
       "Power": -0.2,
@@ -36,6 +46,8 @@ const buildingTypes = {
     })},
   "Electrolysis Reactor": {
     toBuild: new Resources({
+      Steel: 40,
+      Aluminum: 10
     }),
     toRun: new Resources({
       "Power": -0.3,
@@ -45,6 +57,7 @@ const buildingTypes = {
     })},
   "Solar Condenser": {
     toBuild: new Resources({
+      Glass: 5,
     }),
     toRun: new Resources({
       "Water": 1.5,
@@ -53,6 +66,7 @@ const buildingTypes = {
     })},
   "Metal Mine": {
     toBuild: new Resources({
+      //nothing
     }),
     toRun: new Resources({
       "Power": -0.1,
@@ -61,6 +75,7 @@ const buildingTypes = {
     })},
   "Steel Mill": {
     toBuild: new Resources({
+      Iron: 20,
     }),
     toRun: new Resources({
       "Power": -0.3,
@@ -69,6 +84,7 @@ const buildingTypes = {
     })},
   "Elemental Quarry": {
     toBuild: new Resources({
+      //nothing
     }),
     toRun: new Resources({
       "Power": -0.1,
@@ -77,6 +93,8 @@ const buildingTypes = {
     })},
   "Chemical Refinery": {
     toBuild: new Resources({
+      Steel: 40,
+      Carbon: 20,
     }),
     toRun: new Resources({
       "Power": -0.2,
@@ -86,6 +104,8 @@ const buildingTypes = {
     })},
   "Glass Kiln": {
     toBuild: new Resources({
+      Steel: 40,
+      Silicon: 20,
     }),
     toRun: new Resources({
       "Power": -0.2,
@@ -95,6 +115,8 @@ const buildingTypes = {
     })},
   "Electronics Factory": {
     toBuild: new Resources({
+      Iron: 40,
+      Aluminum: 20,
     }),
     toRun: new Resources({
       "Power": -0.2,
@@ -105,36 +127,51 @@ const buildingTypes = {
     })},
   "Patent Lab": {
     toBuild: new Resources({
+      Steel: 60,
+      Electronics: 40,
     }),
     toRun: new Resources({
       "Power": -0.5,
     })},
   "Optimization Center": {
     toBuild: new Resources({
+      Steel: 40,
+      Electronics: 40,
     }),
     toRun: new Resources({
       "Power": -0.5,
     })},
   "Hacker Array": {
     toBuild: new Resources({
+      Steel: 60,
+      Electronics: 20,
     }),
     toRun: new Resources({
       "Power": -0.5,
     })},
   "Pleasure Dome": {
     toBuild: new Resources({
+      Steel: 40,
+      Electronics: 40,
     }),
     toRun: new Resources({
       "Power": -1,
     })},
   "Offworld Market": {
     toBuild: new Resources({
+      Steel: 400,
+      Glass: 100,
+      Electronics: 100,
     }),
     toRun: new Resources({
       "Power": -0.5,
     })},
+  //HQ toBuilds are Scientific
   "HQ2": {
     toBuild: new Resources({
+      Steel: 80,
+      Aluminum: 80,
+      Glass: 20,
     }),
     toRun: new Resources({
       "Water": -0.2,
@@ -143,6 +180,9 @@ const buildingTypes = {
     })},
   "HQ3": {
     toBuild: new Resources({
+      Steel: 160,
+      Aluminum: 160,
+      Glass: 40,
     }),
     toRun: new Resources({
       "Water": -0.4,
@@ -151,6 +191,9 @@ const buildingTypes = {
     })},
   "HQ4": {
     toBuild: new Resources({
+      Steel: 240,
+      Aluminum: 240,
+      Glass: 60,
     }),
     toRun: new Resources({
       "Water": -0.6,
@@ -159,6 +202,9 @@ const buildingTypes = {
     })},
   "HQ5": {
     toBuild: new Resources({
+      Steel: 320,
+      Aluminum: 320,
+      Glass: 80,
     }),
     toRun: new Resources({
       "Water": -0.8,

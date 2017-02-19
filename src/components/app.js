@@ -20,8 +20,10 @@ export default class App extends Component {
 				<Header />
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
-					<Profile path="/profile/" user="me" />
-					<Profile path="/profile/:user" />
+					<Home path="/Expansive" />
+					<Home path="/Robotic" />
+					<Home path="/Scavenger" />
+					<Home path="/Scientific/" />
 				</Router>
 			</div>
 		);

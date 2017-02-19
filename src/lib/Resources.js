@@ -80,6 +80,9 @@ export default class Resources {
   }
   
   sumOfProducts = (otherResources) => {
+    if (!otherResources){
+      return 0;
+    }
     let sum = 0;
     for (const index in types) {
       const t = types[index];

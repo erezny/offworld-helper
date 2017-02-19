@@ -17,7 +17,40 @@ export default class Home extends Component {
 		this.setState({counter: this.state.counter + 1});
 	}
 	
-	renderHeader(resources) {
+	render() {
+		return (
+			<div class={style.home}>
+				<table>
+					<Header
+						resources={this.state.resources}
+					/>
+					<TableBody
+						buildings={this.state.buildings}
+						resources={this.state.resources}
+						/>
+				</table>
+			</div>
+		);
+	}
+	
+	
+}
+
+class Header extends Component {
+	render(props) {
+		const resources = {
+			names: Resources.types().map((t) =>
+				<th>{t}</th>
+			),
+			values: Resources.types().map((t) =>
+				<th>
+					<PricePicker
+						value={props.resources.get(t)}
+						setter={props.resources.setter(t)}
+					/>
+				</th>
+			),
+		};
 		return (
 			<thead>
 				<tr>
@@ -34,24 +67,51 @@ export default class Home extends Component {
 			</thead>
 		);
 	}
-	renderRows() {
-		const buildingsList = this.state.buildings.map((([name,b]) => {
-			const resources = b.toRun.map((r) =>
-				<td>
+}
+
+class TableBody extends Component {
+	render(props) {
+		const {buildings, resources} = props;
+		const buildingsList = [];
+		buildings.map((([name,b]) => {
+			const toRun = b.toRun.map((r) =>
+				<td class={style.toRun}>
 					<NumberDisplay
 						value={r.amount}
 					/>
 				</td>
 			);
-			return (
-			  <tr>
-					<td>{name}</td>
+			
+			const toBuild = b.toBuild.map((r) =>
+				<td class={style.toBuild}>
+					<NumberDisplay
+						value={r.amount}
+					/>
+				</td>
+			);
+			buildingsList.push (
+				<tr>
+					<td rowspan={2}>{name}</td>
 					<td></td>
-					{resources}
-					<td>
+					{toRun}
+					<td class={style.toRun}>
 						<NumberDisplay
-							value={b.toRun.sumOfProducts(this.state.resources)}
+							value={b.toRun.sumOfProducts(resources)}
+							showZero={true}
 						/>
+					</td>
+				</tr>
+			);
+			buildingsList.push(
+				<tr>
+					<td class={style.toBuild}>
+						<NumberDisplay
+							value={b.toBuild.sumOfProducts(resources)}
+							showZero={true}
+						/>
+					</td>
+					{toBuild}
+					<td>
 					</td>
 				</tr>
 			);
@@ -63,30 +123,4 @@ export default class Home extends Component {
 			</tbody>
 		);
 	}
-	render() {
-		
-		const resources = {
-			names: Resources.types().map((t) =>
-			  <th>{t}</th>
-			),
-			values: Resources.types().map((t) =>
-			  <th>
-					<PricePicker
-						value={this.state.resources.get(t)}
-						setter={this.state.resources.setter(t)}
-					/>
-				</th>
-			),
-		};
-		return (
-			<div class={style.home}>
-				<table>
-					{this.renderHeader(resources)}
-					{this.renderRows()}
-				</table>
-			</div>
-		);
-	}
-	
-	
 }
