@@ -16,15 +16,18 @@ const types= [
 ];
 
 export default class Resources {
-  constructor(amounts = {}, onChange = [], defaultValue = 0) {
+  constructor(amounts = {}, onChange = [], defaultValue = 0, storageKey) {
     amounts = amounts || {};
     this.amounts = {};
+    this.storageKey = storageKey;
     for (const index in types) {
       const t = types[index];
       if (amounts[t] !== undefined){
-        this.amounts[t] = amounts[t];
+        this.set(t, amounts[t]);
+      } else if (this.storageKey && localStorage.getItem(`${this.storageKey}.${t}`) !== null) {
+        this.set(t, parseInt(localStorage.getItem(`${this.storageKey}.${t}`),10));
       } else {
-        this.amounts[t] = defaultValue;
+        this.set(t, defaultValue);
       }
     }
     if (typeof(onChange) === 'function')
@@ -69,9 +72,12 @@ export default class Resources {
   
   setter = (resourceName) => {
     return (value) => {
-      this.amounts[resourceName] = value;
+      this.set(resourceName, value);
+      if (this.storageKey) {
+        localStorage.setItem(`${this.storageKey}.${resourceName}`, value);
+      }
       this.onChange();
-      return this.amounts[resourceName];
+      return this.get(resourceName);
     };
   }
   

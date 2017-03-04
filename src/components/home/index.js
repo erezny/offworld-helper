@@ -8,7 +8,7 @@ import NumberDisplay from '../NumberDisplay';
 export default class Home extends Component {
 	constructor() {
 		super();
-		this.state.resources = new Resources({}, this.forceRender, 20);
+		this.state.resources = new Resources({}, this.forceRender, 20, "ResourcePrices");
 		this.state.buildings = new Buildings();
 		this.state.counter = 0;
 	}
@@ -64,8 +64,8 @@ class Header extends Component {
 				</tr>
 				<tr>
 					<th></th>
-					<th></th>
 					{resources.values}
+					<th></th>
 				</tr>
 			</thead>
 		);
@@ -74,7 +74,6 @@ class Header extends Component {
 
 class TableBody extends Component {
 	render(props) {
-		console.log({style});
 		const {buildings, resources} = props;
 		const buildingsList = [];
 		buildings.map((([name,b]) => {
@@ -89,7 +88,7 @@ class TableBody extends Component {
 			const toBuild = b.toBuild.map((r) =>
 				<td className={style.toBuild}>
 					<NumberDisplay
-						value={r.amount}
+						value={-r.amount}
 					/>
 				</td>
 			);
@@ -113,7 +112,7 @@ class TableBody extends Component {
 					</td>
 					<td className={style.toBuild}>
 						<NumberDisplay
-							value={b.toBuild.sumOfProducts(resources)}
+							value={-b.toBuild.sumOfProducts(resources)}
 							showZero={true}
 						/>
 					</td>

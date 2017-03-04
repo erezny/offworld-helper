@@ -1,17 +1,30 @@
+# Offworld trading company helper
+
+Helps with scenario games to plan engineer hires and HQ type.
+
+## How to use
+
+Set the commodity prices at the top of the table to the starting prices in your game.
+
+Switch between the HQ types using the buttons at the top right of the page.
+
+Hire engineers and plan your resource grabs based on the expenses predicted by this model.
+
+Win
+
+## Caveats
+
+The metal mine, quarry, and solar condenser show all possible production, which is rare in regular gameplay.
+
+No production multipliers are accounted for.
+
+Scientific HQ type still lists the input resources, when they can be 
+
+## Development notes
+
+Steer clear of some react anti-patterns used in this project. If you want to contribute small changes please submit a PR. If you want to contribute large changes, please do so by forking, citing this repo, publishing so that I can do the same with yours.
+
 # Preact Boilerplate / Starter Kit
-
-[![Build Status](https://travis-ci.org/developit/preact-boilerplate.svg?branch=master)](https://travis-ci.org/developit/preact-boilerplate)
-[![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/developit/preact)
-
-> :guitar: Ready-to-rock [Preact] starter project, powered by [webpack].
->
-> :rocket: If you're starting a new project using [Preact], you've come to the right place.
-Below is a step-by-step guide that takes you straight from downloading this boilerplate to production.
->
-> **[:boom: View Demo :boom:](https://preact-boilerplate.surge.sh)**
-
-
----
 
 
 # Quick-Start Guide

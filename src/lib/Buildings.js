@@ -24,28 +24,23 @@ export default class Buildings {
   
   forHqType = (hqType) => {
     switch (hqType) {
-      case "Scientific": console.log({hqType});
-                         return {
+      case "Scientific": return {
                            map: (cb) => {return Object.entries(ScientificBuildings).map(cb);},
                            types: () => {return ScientificBuildings;}
                          };
-      case "Robotic": console.log({hqType});
-                         return {
+      case "Robotic": return {
                            map: (cb) => {return Object.entries(RoboticBuildings).map(cb);},
                            types: () => {return this.type();}
                          };
-      case "Scavenger": console.log({hqType});
-                         return {
+      case "Scavenger": return {
                            map: (cb) => {return Object.entries(ScavengerBuildings).map(cb);},
                            types: () => {return this.type();}
                          };
-      case "Expansive": console.log({hqType});
-                         return {
+      case "Expansive": return {
                            map: (cb) => {return Object.entries(ExpansiveBuildings).map(cb);},
                            types: () => {return this.type();}
                          };
-      default: console.log({hqType});
-               return {
+      default: return {
                  map: (cb) => {return Object.entries(ExpansiveBuildings).map(cb);},
                  types: () => {return this.type();}
                };

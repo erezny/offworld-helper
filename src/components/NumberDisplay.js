@@ -4,7 +4,7 @@ export default class NumberDisplay extends Component {
 	render(props) {
     
     const valueText = props.value || props.showZero ? props.value.toFixed(1).replace('.0','') : '';
-    const className = this.getClassName(props.value) + (props.className? ` ${props.className}` : '');
+    const className = this.getClassName(props) + (props.className? ` ${props.className}` : '');
 		return (
 			<div
         className={className}
@@ -14,8 +14,12 @@ export default class NumberDisplay extends Component {
 		);
 	}
   
-  getClassName(value) {
-    if (value > 0) {
+  getClassName(props) {
+		const {value, className} = props;
+		if (className) {
+			return className;
+		}
+    else if (value > 0) {
       return 'positive';
     }
     else if (value < 0) {
