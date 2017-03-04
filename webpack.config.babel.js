@@ -18,7 +18,7 @@ module.exports = {
 
 	output: {
 		path: path.resolve(__dirname, "build"),
-		publicPath: '/',
+		publicPath: '/offworld-helper/',
 		filename: 'bundle.js'
 	},
 
@@ -142,7 +142,7 @@ module.exports = {
 			ServiceWorker: {
 				events: true
 			},
-			publicPath: '/'
+			publicPath: '/offworld-helper/'
 		})
 	] : []),
 
@@ -163,7 +163,7 @@ module.exports = {
 		port: process.env.PORT || 8080,
 		host: 'localhost',
 		colors: true,
-		publicPath: '/',
+		publicPath: '/offworld-helper/',
 		contentBase: './src',
 		historyApiFallback: true,
 		open: true,
